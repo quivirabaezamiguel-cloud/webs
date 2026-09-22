@@ -1,6 +1,6 @@
 /**
- * FUENTE & SABOR - Lógica de Aplicación
- * Gestión de menú, filtros, carrito de compras, modal de personalización y checkout WhatsApp
+ * FUENTE & SABOR - Lógica de Aplicación (Diseño Sobrio y Tradicional)
+ * Gestión de menú, filtros, carrito y checkout
  */
 
 // Formateador de moneda en Pesos Chilenos (CLP)
@@ -19,12 +19,10 @@ const state = {
   cart: [],
   selectedItemForCustomization: null,
   deliveryFee: 2000,
-  restaurantPhone: '56912345678' // Número de WhatsApp del restaurante
+  restaurantPhone: '56912345678' // Teléfono de WhatsApp
 };
 
-// ==========================================================================
-// INICIALIZACIÓN
-// ==========================================================================
+// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
   loadCartFromStorage();
   initCategoryTabs();
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
 });
 
-// Cargar carrito desde localStorage
 function loadCartFromStorage() {
   try {
     const saved = localStorage.getItem('fuente_sabor_cart');
@@ -47,7 +44,6 @@ function loadCartFromStorage() {
   }
 }
 
-// Guardar carrito en localStorage
 function saveCartToStorage() {
   try {
     localStorage.setItem('fuente_sabor_cart', JSON.stringify(state.cart));
@@ -56,9 +52,7 @@ function saveCartToStorage() {
   }
 }
 
-// ==========================================================================
-// RENDERIZADO DE MENÚ Y FILTROS
-// ==========================================================================
+// Renderizado de Categorías
 function initCategoryTabs() {
   const container = document.getElementById('category-tabs');
   if (!container) return;
@@ -67,7 +61,6 @@ function initCategoryTabs() {
     <button class="tab-btn ${cat.id === state.activeCategory ? 'active' : ''}" 
             data-category="${cat.id}"
             id="tab-${cat.id}">
-      <span>${cat.icon}</span>
       <span>${cat.name}</span>
     </button>
   `).join('');
@@ -83,7 +76,6 @@ function initCategoryTabs() {
 function setCategory(categoryId) {
   state.activeCategory = categoryId;
   
-  // Actualizar clases activas en botones
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.category === categoryId);
   });
@@ -91,13 +83,13 @@ function setCategory(categoryId) {
   renderMenuItems();
 }
 
+// Renderizado de Platos
 function renderMenuItems() {
   const grid = document.getElementById('menu-grid');
   if (!grid) return;
 
   const query = state.searchQuery.toLowerCase().trim();
 
-  // Filtrar ítems
   const filtered = MENU_ITEMS.filter(item => {
     const matchesCategory = state.activeCategory === 'todos' || item.category === state.activeCategory;
     const matchesSearch = query === '' || 
@@ -110,9 +102,8 @@ function renderMenuItems() {
   if (filtered.length === 0) {
     grid.innerHTML = `
       <div class="empty-state">
-        <div class="empty-state-icon">🔍</div>
-        <h3>No encontramos resultados</h3>
-        <p>No hay platos que coincidan con "${escapeHTML(state.searchQuery)}". Intenta con otra búsqueda o categoría.</p>
+        <h3>Sin resultados</h3>
+        <p>No encontramos platos que coincidan con "${escapeHTML(state.searchQuery)}".</p>
       </div>
     `;
     return;
@@ -134,12 +125,11 @@ function renderMenuItems() {
           `).join('')}
         </div>
         <div class="card-footer">
-          <button class="btn-add-cart" onclick="quickAddToCart('${item.id}')" title="Agregar rápido">
-            <span>🛒</span>
-            <span>Agregar</span>
+          <button class="btn-add-cart" onclick="quickAddToCart('${item.id}')">
+            Agregar
           </button>
-          <button class="btn-customize" onclick="openCustomizeModal('${item.id}')" title="Personalizar con extras">
-            <span>⚙️</span>
+          <button class="btn-customize" onclick="openCustomizeModal('${item.id}')">
+            Personalizar
           </button>
         </div>
       </div>
@@ -147,14 +137,13 @@ function renderMenuItems() {
   `).join('');
 }
 
-// Renderizado de opiniones
+// Opiniones sobrias
 function renderReviews() {
   const container = document.getElementById('reviews-grid');
   if (!container || !CUSTOMER_REVIEWS) return;
 
   container.innerHTML = CUSTOMER_REVIEWS.map(rev => `
     <div class="review-card">
-      <div class="review-stars">★★★★★</div>
       <p class="review-comment">"${escapeHTML(rev.comment)}"</p>
       <div class="review-author">
         <span class="author-name">${escapeHTML(rev.name)}</span>
@@ -164,16 +153,12 @@ function renderReviews() {
   `).join('');
 }
 
-// ==========================================================================
-// GESTIÓN DEL CARRITO
-// ==========================================================================
-
-// Agregar rápido (sin personalización)
+// Carrito
 window.quickAddToCart = function(itemId) {
   const item = MENU_ITEMS.find(i => i.id === itemId);
   if (!item) return;
 
-  const defaultBread = item.category === 'completos' ? 'Pan de Completo Artesanal' : 'Pan Frica Artesanal Tostado';
+  const defaultBread = item.category === 'completos' ? 'Pan de Completo tradicional' : 'Pan Frica tostado';
 
   const cartItem = {
     cartKey: `${item.id}-${Date.now()}`,
@@ -189,11 +174,10 @@ window.quickAddToCart = function(itemId) {
   };
 
   addToCart(cartItem);
-  showToast(`¡${item.name} agregado al carrito!`);
+  showToast(`${item.name} agregado`);
 };
 
 function addToCart(cartItem) {
-  // Comprobar si ya existe un ítem idéntico (mismo id, pan y extras)
   const existingIndex = state.cart.findIndex(i => 
     i.id === cartItem.id && 
     i.bread === cartItem.bread && 
@@ -211,7 +195,6 @@ function addToCart(cartItem) {
   updateCartUI();
 }
 
-// Cambiar cantidad
 window.updateCartQuantity = function(cartKey, change) {
   const itemIndex = state.cart.findIndex(i => i.cartKey === cartKey);
   if (itemIndex === -1) return;
@@ -226,14 +209,12 @@ window.updateCartQuantity = function(cartKey, change) {
   updateCartUI();
 };
 
-// Eliminar ítem completo
 window.removeCartItem = function(cartKey) {
   state.cart = state.cart.filter(i => i.cartKey !== cartKey);
   saveCartToStorage();
   updateCartUI();
 };
 
-// Actualizar badges e interfaz del carrito
 function updateCartUI() {
   const countBadge = document.getElementById('cart-badge');
   const floatingCountBadge = document.getElementById('floating-cart-badge');
@@ -255,9 +236,8 @@ function updateCartUI() {
   if (state.cart.length === 0) {
     drawerItems.innerHTML = `
       <div class="cart-empty">
-        <div class="cart-empty-icon">🥪</div>
-        <h4>Tu carrito está vacío</h4>
-        <p>¡Elige tus sándwiches, pastas o completos favoritos para empezar!</p>
+        <h4>Tu pedido está vacío</h4>
+        <p style="font-size: 0.85rem; color: #71717a;">Selecciona platos de la carta para comenzar.</p>
       </div>
     `;
     const btnCheckout = document.getElementById('btn-checkout-drawer');
@@ -273,11 +253,11 @@ function updateCartUI() {
       <img src="${item.image}" alt="${escapeHTML(item.name)}" class="cart-item-img" />
       <div class="cart-item-info">
         <div class="cart-item-title">${escapeHTML(item.name)}</div>
-        ${item.bread ? `<div class="cart-item-extras">🥖 ${escapeHTML(item.bread)}</div>` : ''}
+        ${item.bread ? `<div class="cart-item-extras">${escapeHTML(item.bread)}</div>` : ''}
         ${item.extras && item.extras.length > 0 ? `
           <div class="cart-item-extras">+ ${item.extras.map(e => escapeHTML(e.name)).join(', ')}</div>
         ` : ''}
-        ${item.notes ? `<div class="cart-item-extras" style="color: #94a3b8;">Nota: "${escapeHTML(item.notes)}"</div>` : ''}
+        ${item.notes ? `<div class="cart-item-extras" style="color: #71717a;">Nota: "${escapeHTML(item.notes)}"</div>` : ''}
         <div class="cart-item-controls">
           <div class="qty-control">
             <button class="qty-btn" onclick="updateCartQuantity('${item.cartKey}', -1)">-</button>
@@ -285,16 +265,14 @@ function updateCartUI() {
             <button class="qty-btn" onclick="updateCartQuantity('${item.cartKey}', 1)">+</button>
           </div>
           <span class="cart-item-price">${formatCLP(item.totalPrice * item.quantity)}</span>
-          <button class="btn-remove-item" onclick="removeCartItem('${item.cartKey}')" title="Eliminar plato">🗑️</button>
+          <button class="btn-remove-item" onclick="removeCartItem('${item.cartKey}')" title="Quitar">Quitar</button>
         </div>
       </div>
     </div>
   `).join('');
 }
 
-// ==========================================================================
-// MODAL DE PERSONALIZACIÓN
-// ==========================================================================
+// Personalización
 window.openCustomizeModal = function(itemId) {
   const item = MENU_ITEMS.find(i => i.id === itemId);
   if (!item) return;
@@ -306,7 +284,6 @@ window.openCustomizeModal = function(itemId) {
   const breadSection = document.getElementById('modal-bread-section');
   const extrasList = document.getElementById('modal-extras-list');
 
-  // Preview de cabecera
   preview.innerHTML = `
     <img src="${item.image}" alt="${escapeHTML(item.name)}" class="modal-product-img" />
     <div class="modal-product-info">
@@ -316,16 +293,15 @@ window.openCustomizeModal = function(itemId) {
     </div>
   `;
 
-  // Sección de Pan (solo sándwiches y completos)
   const isSandwich = ['completos', 'churrascos', 'hass', 'barros_luco'].includes(item.category);
   if (isSandwich && breadSection) {
     breadSection.style.display = 'block';
     const breads = item.category === 'completos' 
-      ? ['Pan de Completo Tradicional Horneado', 'Pan de Completo XL Especial (+ $400)'] 
+      ? ['Pan de Completo tradicional', 'Pan de Completo extra grande (+ $400)'] 
       : BREAD_OPTIONS;
 
     breadSection.innerHTML = `
-      <h4 class="custom-section-title">Elige tu Pan:</h4>
+      <h4 class="custom-section-title">Tipo de Pan:</h4>
       <div class="options-group">
         ${breads.map((b, idx) => `
           <label class="option-checkbox-label">
@@ -341,7 +317,6 @@ window.openCustomizeModal = function(itemId) {
     breadSection.style.display = 'none';
   }
 
-  // Lista de Extras
   if (extrasList) {
     extrasList.innerHTML = CUSTOMIZATION_EXTRAS.map(extra => `
       <label class="option-checkbox-label">
@@ -354,7 +329,6 @@ window.openCustomizeModal = function(itemId) {
     `).join('');
   }
 
-  // Limpiar notas y cantidad
   const notesInput = document.getElementById('custom-notes');
   if (notesInput) notesInput.value = '';
 
@@ -371,7 +345,6 @@ window.recalculateModalPrice = function() {
 
   let unitPrice = item.price;
 
-  // Pan con costo extra (ej. Pan Amasado o XL)
   const selectedBread = document.querySelector('input[name="custom_bread"]:checked');
   if (selectedBread && selectedBread.value.includes('+ $500')) {
     unitPrice += 500;
@@ -379,7 +352,6 @@ window.recalculateModalPrice = function() {
     unitPrice += 400;
   }
 
-  // Extras seleccionados
   const checkedExtras = document.querySelectorAll('input[name="custom_extra"]:checked');
   checkedExtras.forEach(cb => {
     unitPrice += parseInt(cb.dataset.price, 10);
@@ -444,12 +416,10 @@ window.confirmCustomAddToCart = function() {
 
   addToCart(cartItem);
   closeModal('customize-modal');
-  showToast(`¡${item.name} personalizado agregado!`);
+  showToast(`${item.name} agregado`);
 };
 
-// ==========================================================================
-// MODAL DE CHECKOUT & GENERADOR DE WHATSAPP
-// ==========================================================================
+// Checkout & WhatsApp
 window.openCheckoutModal = function() {
   if (state.cart.length === 0) return;
 
@@ -457,17 +427,14 @@ window.openCheckoutModal = function() {
   const modal = document.getElementById('checkout-modal');
   if (!modal) return;
 
-  // Resumen del pedido
   const summaryEl = document.getElementById('checkout-order-summary');
-  const subtotal = state.cart.reduce((sum, item) => sum + (item.totalPrice * item.quantity), 0);
-
   updateCheckoutTotals();
 
   if (summaryEl) {
     summaryEl.innerHTML = state.cart.map(item => `
-      <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 6px;">
+      <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
         <span>${item.quantity}x ${escapeHTML(item.name)}</span>
-        <span style="font-weight: 700; color: #fbbf24;">${formatCLP(item.totalPrice * item.quantity)}</span>
+        <span style="font-weight: 600;">${formatCLP(item.totalPrice * item.quantity)}</span>
       </div>
     `).join('');
   }
@@ -512,12 +479,12 @@ window.submitOrderToWhatsApp = function(e) {
   const comments = document.getElementById('order-comments').value.trim();
 
   if (!name || !phone) {
-    alert('Por favor ingresa tu nombre y número de teléfono.');
+    alert('Por favor ingresa tu nombre y teléfono.');
     return;
   }
 
   if (deliveryType === 'delivery' && !address) {
-    alert('Por favor ingresa tu dirección de entrega.');
+    alert('Por favor ingresa tu dirección.');
     return;
   }
 
@@ -525,66 +492,58 @@ window.submitOrderToWhatsApp = function(e) {
   const fee = deliveryType === 'delivery' ? state.deliveryFee : 0;
   const total = subtotal + fee;
 
-  // Construir mensaje estructurado para WhatsApp
-  let message = `*¡HOLA FUENTE & SABOR! NUEVO PEDIDO:* 🥪🌭\n\n`;
+  // Mensaje sobrio y claro
+  let message = `*PEDIDO - FUENTE & SABOR*\n\n`;
   message += `*Cliente:* ${name}\n`;
   message += `*Teléfono:* ${phone}\n`;
-  message += `*Modalidad:* ${deliveryType === 'delivery' ? '🛵 Despacho a Domicilio' : '🏪 Retiro en Local'}\n`;
+  message += `*Entrega:* ${deliveryType === 'delivery' ? 'Despacho a Domicilio' : 'Retiro en Local'}\n`;
   
   if (deliveryType === 'delivery') {
     message += `*Dirección:* ${address}\n`;
   }
   
-  message += `*Método de Pago:* ${paymentMethod}\n`;
+  message += `*Forma de Pago:* ${paymentMethod}\n`;
   if (comments) {
-    message += `*Comentarios adicionales:* ${comments}\n`;
+    message += `*Comentarios:* ${comments}\n`;
   }
 
   message += `\n*DETALLE DEL PEDIDO:*\n`;
   message += `------------------------------\n`;
 
   state.cart.forEach((item, index) => {
-    message += `${index + 1}. *${item.quantity}x ${item.name}* - ${formatCLP(item.totalPrice * item.quantity)}\n`;
+    message += `${index + 1}. ${item.quantity}x ${item.name} (${formatCLP(item.totalPrice * item.quantity)})\n`;
     if (item.bread) {
-      message += `   🥖 Pan: ${item.bread}\n`;
+      message += `   - Pan: ${item.bread}\n`;
     }
     if (item.extras && item.extras.length > 0) {
-      message += `   ✨ Extras: ${item.extras.map(e => e.name).join(', ')}\n`;
+      message += `   - Extras: ${item.extras.map(e => e.name).join(', ')}\n`;
     }
     if (item.notes) {
-      message += `   📝 Nota: ${item.notes}\n`;
+      message += `   - Nota: ${item.notes}\n`;
     }
   });
 
   message += `------------------------------\n`;
   message += `*Subtotal:* ${formatCLP(subtotal)}\n`;
   if (deliveryType === 'delivery') {
-    message += `*Costo de Envío:* ${formatCLP(fee)}\n`;
+    message += `*Envío:* ${formatCLP(fee)}\n`;
   }
-  message += `*TOTAL A PAGAR: ${formatCLP(total)}*\n\n`;
-  message += `_Enviado desde el sitio web oficial de Fuente & Sabor._`;
+  message += `*TOTAL: ${formatCLP(total)}*`;
 
-  // Codificar para URL
   const encodedMsg = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${state.restaurantPhone}?text=${encodedMsg}`;
 
-  // Abrir WhatsApp en nueva pestaña
   window.open(whatsappUrl, '_blank');
 
-  // Limpiar carrito tras completar
   state.cart = [];
   saveCartToStorage();
   updateCartUI();
   closeModal('checkout-modal');
 
-  showToast('¡Redirigiendo a WhatsApp con tu pedido listo!');
+  showToast('Abriendo WhatsApp con tu pedido');
 };
 
-// ==========================================================================
-// CONTROLES DE INTERFAZ Y EVENTOS
-// ==========================================================================
 function setupEventListeners() {
-  // Buscador dinámico
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -593,7 +552,6 @@ function setupEventListeners() {
     });
   }
 
-  // Drawer de Carrito
   const openCartBtn = document.getElementById('btn-open-cart');
   const floatingCartBtn = document.getElementById('floating-cart-btn');
   const closeCartBtn = document.getElementById('btn-close-cart');
@@ -604,23 +562,10 @@ function setupEventListeners() {
   if (closeCartBtn) closeCartBtn.addEventListener('click', closeDrawer);
   if (cartBackdrop) cartBackdrop.addEventListener('click', closeDrawer);
 
-  // Botón checkout desde drawer
   const btnCheckoutDrawer = document.getElementById('btn-checkout-drawer');
   if (btnCheckoutDrawer) {
     btnCheckoutDrawer.addEventListener('click', openCheckoutModal);
   }
-
-  // Efecto scrolled en header
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (header) {
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
-  });
 }
 
 function openDrawer() {
@@ -644,7 +589,6 @@ window.closeModal = function(modalId) {
   if (modal) modal.classList.remove('open');
 };
 
-// Toast notification
 function showToast(message) {
   let container = document.getElementById('toast-container');
   if (!container) {
@@ -656,15 +600,14 @@ function showToast(message) {
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.innerHTML = `<span>✨</span><span>${escapeHTML(message)}</span>`;
+  toast.textContent = message;
   container.appendChild(toast);
 
   setTimeout(() => {
     if (toast.parentNode) toast.parentNode.removeChild(toast);
-  }, 2800);
+  }, 2200);
 }
 
-// Helper para escapar HTML y prevenir XSS
 function escapeHTML(str) {
   if (!str) return '';
   return String(str)

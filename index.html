@@ -3,56 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuente & Sabor | Sanguchería Tradicional y Comida Rápida Chilena</title>
+  <title>Fuente & Sabor | Sanguchería Tradicional Chilena</title>
   
-  <!-- SEO & Meta Tags -->
-  <meta name="description" content="Los mejores completos italianos, churrascos criollos, especialidades con palta Hass, barros luco fundido, pastas caseras y jugos naturales. ¡Pide online con despacho rápido!">
-  <meta name="keywords" content="completos italianos, churrascos, barros luco, palta hass, pastas caseras, comida rapida chile, fuente de soda, jugos naturales, delivery sándwiches">
+  <meta name="description" content="Sánguches tradicionales chilenos, completos italianos, churrascos, barros luco, pastas artesanales y jugos naturales. Pedidos para llevar y despacho a domicilio.">
   <meta name="author" content="Fuente & Sabor">
-  
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Fuente & Sabor - Sanguchería Tradicional Chilena">
-  <meta property="og:description" content="El auténtico sabor chileno: completos italianos, churrascos, barros luco, pastas artesanales y jugos naturales. Pide directo a WhatsApp.">
+  <meta property="og:title" content="Fuente & Sabor - Sanguchería Tradicional">
+  <meta property="og:description" content="Completos, churrascos, barros luco, pastas caseras y jugos naturales.">
   <meta property="og:image" content="assets/images/hero_food_banner_1790093904159.jpg">
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥪</text></svg>">
 
-  <!-- Stylesheet -->
+  <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- ==========================================================================
-       HEADER / NAVBAR
+       CABECERA
        ========================================================================== -->
   <header class="header" id="navbar">
     <div class="container nav-container">
       <a href="#inicio" class="brand-logo" id="brand-logo-link">
-        <div class="logo-badge">🔥</div>
         <div class="brand-text">
           <h1>FUENTE & SABOR</h1>
-          <span class="brand-tagline">Sanguchería & Tradición Chilena</span>
+          <span class="brand-tagline">Sanguchería Tradicional</span>
         </div>
       </a>
 
-      <!-- Buscador dinámico de platos -->
+      <!-- Buscador -->
       <div class="nav-search">
         <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" class="search-input" placeholder="Buscar completos, churrascos, pastas..." autocomplete="off">
+        <input type="text" id="search-input" class="search-input" placeholder="Buscar por plato o ingrediente..." autocomplete="off">
       </div>
 
-      <!-- Acciones de cabecera -->
+      <!-- Acciones -->
       <div class="nav-actions">
         <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" class="btn-contact" id="btn-nav-whatsapp">
-          <span>💬</span>
-          <span>WhatsApp Local</span>
+          WhatsApp Directo
         </a>
 
-        <button class="cart-button-header" id="btn-open-cart" aria-label="Abrir carrito de compras">
-          <span>🛒</span>
-          <span>Carrito</span>
+        <button class="cart-button-header" id="btn-open-cart" aria-label="Abrir pedido">
+          <span>Mi Pedido</span>
           <span class="cart-count-badge" id="cart-badge">0</span>
         </button>
       </div>
@@ -60,215 +55,174 @@
   </header>
 
   <!-- ==========================================================================
-       HERO BANNER
+       PRESENTACIÓN
        ========================================================================== -->
   <section class="hero" id="inicio">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-pill">
-          <span>🇨🇱</span>
-          <span>Sabor Tradicional de Fuente de Soda</span>
-        </div>
+        <span class="hero-pill">Fuente de Soda Tradicional</span>
         
         <h2 class="hero-title">
-          El Auténtico Sabor Chileno <br>
-          en <span class="highlight">Cada Mordisco</span>
+          Sánguches clásicos, completos y pastas caseras
         </h2>
 
         <p class="hero-subtitle">
-          Completos italianos monumentales con mayonesa 100% casera, churrascos tiernos en pan crujiente, Barros Luco con queso derretido hirviendo, pastas caseras al dente y jugos de fruta natural recién exprimidos.
+          Carnes a la plancha, palta Hass fresca molida en el día, mayonesa casera y pan tostado al momento. Atención en local y pedidos con despacho a domicilio.
         </p>
 
         <div class="hero-actions">
           <a href="#menu-principal" class="btn-primary" id="cta-hero-menu">
-            <span>Explorar Menú</span>
-            <span>👇</span>
+            Ver la Carta
           </a>
           <button class="btn-secondary" onclick="openDrawer()" id="cta-hero-cart">
-            <span>Ver Mi Pedido</span>
-            <span>🛒</span>
+            Revisar Pedido
           </button>
         </div>
       </div>
 
       <div class="hero-image-wrapper">
         <div class="hero-img-card">
-          <img src="assets/images/hero_food_banner_1790093904159.jpg" alt="Mesa de comida rápida chilena con completos, churrascos y jugos naturales" loading="eager">
-          <div class="hero-floating-badge">
-            <span class="badge-icon">⭐</span>
-            <div>
-              <div class="badge-text-title">Mayonesa Casera & Palta Fresca</div>
-              <div class="badge-text-sub">100% Palta Hass Molida en el Día</div>
-            </div>
-          </div>
+          <img src="assets/images/hero_food_banner_1790093904159.jpg" alt="Mesa servida con completos italianos, churrascos y jugos naturales" loading="eager">
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       BENEFICIOS / QUALITY STRIP
+       INFORMACIÓN DE SERVICIO
        ========================================================================== -->
   <section class="benefits-section">
     <div class="container benefits-grid">
       <div class="benefit-item">
-        <div class="benefit-icon">🛵</div>
-        <div>
-          <h3 class="benefit-title">Despacho Rápido</h3>
-          <p class="benefit-desc">Caliente en tu puerta en 30-45 minutos.</p>
-        </div>
+        <span class="benefit-title">Despacho a Domicilio</span>
+        <span class="benefit-desc">Tiempo estimado: 30 a 45 minutos</span>
       </div>
 
       <div class="benefit-item">
-        <div class="benefit-icon">🥑</div>
-        <div>
-          <h3 class="benefit-title">100% Palta Hass</h3>
-          <p class="benefit-desc">Cremosa, fresca y molida al instante.</p>
-        </div>
+        <span class="benefit-title">Palta Hass Fresca</span>
+        <span class="benefit-desc">Molida a mano a diario</span>
       </div>
 
       <div class="benefit-item">
-        <div class="benefit-icon">🥖</div>
-        <div>
-          <h3 class="benefit-title">Pan Horneado al Día</h3>
-          <p class="benefit-desc">Frica, marraqueta y molde siempre crujientes.</p>
-        </div>
+        <span class="benefit-title">Panadería Artesanal</span>
+        <span class="benefit-desc">Pan frica y marraqueta horneados al día</span>
       </div>
 
       <div class="benefit-item">
-        <div class="benefit-icon">🧀</div>
-        <div>
-          <h3 class="benefit-title">Queso Fundido Real</h3>
-          <p class="benefit-desc">Queso Chanco artesanal elástico y abundante.</p>
-        </div>
+        <span class="benefit-title">Mayonesa de la Casa</span>
+        <span class="benefit-desc">Receta clásica tradicional</span>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       SECCIÓN DE MENÚ PRINCIPAL
+       CARTA / MENÚ PRINCIPAL
        ========================================================================== -->
   <main class="menu-section" id="menu-principal">
     <div class="container">
       <div class="section-header">
-        <span class="section-pill">Nuestra Carta Completa</span>
-        <h2 class="section-title">Elige Tus Favoritos</h2>
+        <span class="section-pill">Carta del Local</span>
+        <h2 class="section-title">Nuestras Especialidades</h2>
         <p class="section-subtitle">
-          Selecciona una categoría o busca por ingrediente para armar tu pedido a gusto.
+          Elige tus platos favoritos para armar tu pedido o retirarlo en el local.
         </p>
       </div>
 
-      <!-- Barra de navegación por categorías -->
-      <nav class="category-tabs-container" id="category-tabs" aria-label="Categorías del Menú">
-        <!-- Renderizado dinámicamente con JS -->
+      <!-- Filtros de Categorías -->
+      <nav class="category-tabs-container" id="category-tabs" aria-label="Categorías de la Carta">
+        <!-- Renderizado dinámico con JS -->
       </nav>
 
-      <!-- Cuadrícula de Platos -->
+      <!-- Grilla de Platos -->
       <div class="menu-grid" id="menu-grid">
-        <!-- Renderizado dinámicamente con JS -->
+        <!-- Renderizado dinámico con JS -->
       </div>
     </div>
   </main>
 
   <!-- ==========================================================================
-       SECCIÓN DE OPINIONES DE CLIENTES
+       OPINIONES DE CLIENTES
        ========================================================================== -->
   <section class="reviews-section">
     <div class="container">
-      <div class="section-header" style="margin-bottom: 30px;">
-        <span class="section-pill">Clientes Felices</span>
-        <h2 class="section-title">Lo Que Dicen de Nosotros</h2>
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-pill">Clientes</span>
+        <h2 class="section-title" style="font-size: 1.8rem;">Opiniones Recientes</h2>
       </div>
 
       <div class="reviews-grid" id="reviews-grid">
-        <!-- Renderizado dinámicamente con JS -->
+        <!-- Renderizado dinámico con JS -->
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       FOOTER
+       PIE DE PÁGINA
        ========================================================================== -->
   <footer class="footer" id="contacto">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-logo" style="margin-bottom: 12px;">
-            <div class="logo-badge">🔥</div>
-            <div class="brand-text">
-              <span style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: #fff;">FUENTE & SABOR</span>
-            </div>
-          </div>
+          <h4>FUENTE & SABOR</h4>
           <p>
-            El templo del sánguche chileno. Recetas tradicionales, carnes seleccionadas a la plancha y la inconfundible mayonesa casera que cautiva a todos.
+            Tradición sanguchera en Santiago. Carnes seleccionadas a la plancha, recetas caseras y atención rápida.
           </p>
-          <div class="footer-socials">
-            <a href="#" class="social-link" title="Instagram">📸</a>
-            <a href="#" class="social-link" title="Facebook">📘</a>
-            <a href="https://wa.me/56912345678" target="_blank" class="social-link" title="WhatsApp">💬</a>
-          </div>
         </div>
 
         <div class="footer-col">
-          <h4>Nuestras Especialidades</h4>
+          <h4>Especialidades</h4>
           <ul class="footer-links">
             <li><a href="#menu-principal" onclick="setCategory('completos')">Completos Italianos</a></li>
-            <li><a href="#menu-principal" onclick="setCategory('churrascos')">Churrascos Criollos</a></li>
-            <li><a href="#menu-principal" onclick="setCategory('hass')">Especialidades con Palta Hass</a></li>
-            <li><a href="#menu-principal" onclick="setCategory('barros_luco')">Barros Luco con Queso Fundido</a></li>
-            <li><a href="#menu-principal" onclick="setCategory('pastas')">Lasaña & Pastas Caseras</a></li>
-            <li><a href="#menu-principal" onclick="setCategory('bebidas_jugos')">Jugos Naturales</a></li>
+            <li><a href="#menu-principal" onclick="setCategory('churrascos')">Churrascos</a></li>
+            <li><a href="#menu-principal" onclick="setCategory('hass')">Línea Hass</a></li>
+            <li><a href="#menu-principal" onclick="setCategory('barros_luco')">Barros Luco</a></li>
+            <li><a href="#menu-principal" onclick="setCategory('pastas')">Pastas Caseras</a></li>
+            <li><a href="#menu-principal" onclick="setCategory('bebidas_jugos')">Bebidas y Jugos</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Horario de Atención</h4>
+          <h4>Horarios</h4>
           <ul class="footer-links">
-            <li><strong style="color: #fff;">Lunes a Jueves:</strong><br> 12:00 - 23:00 hrs</li>
-            <li><strong style="color: #fff;">Viernes y Sábados:</strong><br> 12:00 - 00:30 hrs</li>
-            <li><strong style="color: #fff;">Domingos:</strong><br> 12:30 - 22:30 hrs</li>
+            <li>Lunes a Jueves: 12:00 - 23:00 hrs</li>
+            <li>Viernes y Sábados: 12:00 - 00:00 hrs</li>
+            <li>Domingos: 12:30 - 22:00 hrs</li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contacto & Ubicación</h4>
+          <h4>Ubicación y Contacto</h4>
           <div class="footer-contact-item">
-            <span>📍</span>
-            <span>Av. Providencia #1820, Santiago de Chile</span>
+            Av. Providencia #1820, Santiago
           </div>
           <div class="footer-contact-item">
-            <span>📞</span>
-            <span>+56 9 1234 5678</span>
+            Teléfono: +56 9 1234 5678
           </div>
           <div class="footer-contact-item">
-            <span>🛵</span>
-            <span>Cobertura Delivery: Providencia, Las Condes, Santiago Centro, Ñuñoa</span>
+            Zonas de reparto: Providencia, Las Condes, Santiago Centro, Ñuñoa
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>&copy; 2026 Fuente & Sabor - Todos los derechos reservados.</div>
-        <div>Hecho con ❤️ para los amantes del buen sánguche chileno.</div>
+        <div>Santiago de Chile</div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       DRAWER LATERAL DEL CARRITO
+       DRAWER DEL CARRITO
        ========================================================================== -->
   <div class="cart-backdrop" id="cart-backdrop"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrito de compras">
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Detalle del pedido">
     <div class="cart-header">
-      <h3>
-        <span>🛒</span>
-        <span>Tu Pedido</span>
-      </h3>
-      <button class="btn-close-drawer" id="btn-close-cart" aria-label="Cerrar carrito">✕</button>
+      <h3>Tu Pedido</h3>
+      <button class="btn-close-drawer" id="btn-close-cart" aria-label="Cerrar pedido">✕</button>
     </div>
 
     <div class="cart-items-container" id="cart-items-list">
-      <!-- Se inyectan los productos del carrito con JS -->
+      <!-- Inyectado con JS -->
     </div>
 
     <div class="cart-footer">
@@ -281,38 +235,32 @@
         <span id="cart-total-val">$0</span>
       </div>
       <button class="btn-checkout-flow" id="btn-checkout-drawer">
-        <span>Confirmar Pedido</span>
-        <span>👉</span>
+        Continuar con el Pedido
       </button>
     </div>
   </aside>
 
   <!-- ==========================================================================
-       MODAL DE PERSONALIZACIÓN DE PRODUCTO
+       MODAL DE PERSONALIZACIÓN
        ========================================================================== -->
   <div class="modal-backdrop" id="customize-modal" role="dialog" aria-modal="true" aria-labelledby="custom-modal-title">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="custom-modal-title">Personaliza Tu Plato</h3>
-        <button class="btn-close-drawer" onclick="closeModal('customize-modal')" aria-label="Cerrar modal">✕</button>
+        <h3 id="custom-modal-title">Personalizar Plato</h3>
+        <button class="btn-close-drawer" onclick="closeModal('customize-modal')" aria-label="Cerrar">✕</button>
       </div>
 
       <div class="modal-body">
-        <!-- Preview del producto -->
         <div class="modal-product-preview" id="modal-product-preview"></div>
-
-        <!-- Selección de Pan -->
         <div id="modal-bread-section"></div>
 
-        <!-- Extras Opcionales -->
         <div>
-          <h4 class="custom-section-title">Agrega Extras Deliciosos:</h4>
+          <h4 class="custom-section-title">Ingredientes Adicionales:</h4>
           <div class="options-group" id="modal-extras-list"></div>
         </div>
 
-        <!-- Instrucciones especiales -->
         <div class="form-group">
-          <label for="custom-notes" class="form-label">Instrucciones o preferencias:</label>
+          <label for="custom-notes" class="form-label">Indicaciones especiales (opcional):</label>
           <textarea id="custom-notes" class="form-textarea" rows="2" placeholder="Ej: Sin sal, bien tostado, mayonesa aparte..."></textarea>
         </div>
       </div>
@@ -325,108 +273,101 @@
         </div>
 
         <button class="btn-primary" onclick="confirmCustomAddToCart()">
-          <span>Agregar al Carrito</span>
+          Agregar al Pedido
         </button>
       </div>
     </div>
   </div>
 
   <!-- ==========================================================================
-       MODAL DE CHECKOUT / ENVÍO A WHATSAPP
+       MODAL DE CHECKOUT
        ========================================================================== -->
   <div class="modal-backdrop" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="checkout-modal-title">Finalizar Pedido</h3>
-        <button class="btn-close-drawer" onclick="closeModal('checkout-modal')" aria-label="Cerrar checkout">✕</button>
+        <h3 id="checkout-modal-title">Datos del Pedido</h3>
+        <button class="btn-close-drawer" onclick="closeModal('checkout-modal')" aria-label="Cerrar">✕</button>
       </div>
 
       <form class="modal-body" onsubmit="submitOrderToWhatsApp(event)">
-        <!-- Resumen Breve -->
         <div class="form-group">
           <label class="form-label">Resumen de Productos:</label>
-          <div id="checkout-order-summary" style="background: var(--bg-surface-elevated); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); max-height: 120px; overflow-y: auto;"></div>
+          <div id="checkout-order-summary" style="background: var(--bg-surface-elevated); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); max-height: 120px; overflow-y: auto;"></div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="order-name" class="form-label">Tu Nombre Completo *</label>
-            <input type="text" id="order-name" class="form-input" required placeholder="Ej: Juan Pérez">
+            <label for="order-name" class="form-label">Nombre *</label>
+            <input type="text" id="order-name" class="form-input" required placeholder="Tu nombre">
           </div>
           <div class="form-group">
-            <label for="order-phone" class="form-label">Teléfono de Contacto *</label>
-            <input type="tel" id="order-phone" class="form-input" required placeholder="Ej: +56 9 8765 4321">
+            <label for="order-phone" class="form-label">Teléfono *</label>
+            <input type="tel" id="order-phone" class="form-input" required placeholder="+56 9 ...">
           </div>
         </div>
 
-        <!-- Tipo de Entrega -->
         <div class="form-group">
-          <label class="form-label">Modalidad de Entrega:</label>
-          <div style="display: flex; gap: 16px; margin-top: 4px;">
+          <label class="form-label">Forma de Entrega:</label>
+          <div style="display: flex; gap: 12px; margin-top: 4px;">
             <label class="option-checkbox-label" style="flex: 1;">
               <span class="option-name">
                 <input type="radio" name="delivery_type" value="delivery" checked onchange="handleDeliveryTypeChange()">
-                🛵 Despacho a Domicilio
+                Despacho a Domicilio
               </span>
             </label>
             <label class="option-checkbox-label" style="flex: 1;">
               <span class="option-name">
                 <input type="radio" name="delivery_type" value="pickup" onchange="handleDeliveryTypeChange()">
-                🏪 Retiro en Local
+                Retiro en Local
               </span>
             </label>
           </div>
         </div>
 
-        <!-- Dirección -->
         <div class="form-group" id="checkout-address-group">
-          <label for="order-address" class="form-label">Dirección de Entrega y Comuna *</label>
-          <input type="text" id="order-address" class="form-input" placeholder="Ej: Calle Los Leones 1234, Depto 502, Providencia">
+          <label for="order-address" class="form-label">Dirección y Comuna *</label>
+          <input type="text" id="order-address" class="form-input" placeholder="Calle, número y depto">
         </div>
 
-        <!-- Método de Pago -->
         <div class="form-group">
-          <label for="order-payment" class="form-label">Método de Pago:</label>
+          <label for="order-payment" class="form-label">Forma de Pago:</label>
           <select id="order-payment" class="form-select">
-            <option value="Transferencia Bancaria Inmediata">Transferencia Bancaria Inmediata</option>
-            <option value="Tarjeta de Débito / Crédito al Repartidor">Tarjeta de Débito / Crédito al Repartidor (POS)</option>
-            <option value="Efectivo al recibir">Efectivo al recibir (indicar vuelto si aplica)</option>
+            <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+            <option value="Tarjeta de Débito / Crédito al repartidor">Tarjeta de Débito / Crédito (POS)</option>
+            <option value="Efectivo">Efectivo al recibir</option>
           </select>
         </div>
 
-        <!-- Comentarios extras -->
         <div class="form-group">
-          <label for="order-comments" class="form-label">Notas para el repartidor o cocina:</label>
-          <input type="text" id="order-comments" class="form-input" placeholder="Ej: Tocar el timbre B, pedir cubiertos adicionales...">
+          <label for="order-comments" class="form-label">Comentarios o referencias:</label>
+          <input type="text" id="order-comments" class="form-input" placeholder="Ej: Timbre 4B, llamar antes de llegar...">
         </div>
 
-        <!-- Totales de Checkout -->
-        <div style="background: var(--bg-surface-elevated); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: var(--bg-surface-elevated); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 4px;">
           <div class="cart-summary-line">
-            <span>Subtotal Productos:</span>
+            <span>Subtotal:</span>
             <span id="checkout-subtotal-val">$0</span>
           </div>
           <div class="cart-summary-line">
-            <span>Costo de Despacho:</span>
+            <span>Envío:</span>
             <span id="checkout-fee-val">$2.000</span>
           </div>
           <div class="cart-summary-line total" style="margin-top: 4px;">
             <span>Total a Pagar:</span>
-            <span id="checkout-total-val" style="color: var(--accent-amber);">$0</span>
+            <span id="checkout-total-val">$0</span>
           </div>
         </div>
 
-        <button type="submit" class="btn-checkout-flow" style="margin-top: 10px; width: 100%;">
-          <span>💬 Enviar Pedido a WhatsApp</span>
+        <button type="submit" class="btn-checkout-flow" style="margin-top: 6px; width: 100%;">
+          Enviar Pedido por WhatsApp
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Botón Flotante de Carrito para Móviles -->
+  <!-- Botón Móvil -->
   <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Ver pedido">
-    <span>🛒</span>
-    <span>Ver Carrito</span>
+    <span>Ver Pedido</span>
     <span class="cart-count-badge" id="floating-cart-badge">0</span>
   </button>
 
