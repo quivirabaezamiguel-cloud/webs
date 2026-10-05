@@ -19,7 +19,7 @@ const state = {
   cart: [],
   selectedItemForCustomization: null,
   deliveryFee: 2000,
-  restaurantPhone: '56912345678' // Teléfono de WhatsApp
+  restaurantPhone: '56988865584' // Teléfono de WhatsApp
 };
 
 // Inicialización
