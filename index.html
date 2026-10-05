@@ -34,6 +34,13 @@
         </div>
       </a>
 
+      <!-- Enlaces de navegación -->
+      <nav class="nav-links">
+        <a href="#el-local">El Local</a>
+        <a href="#menu-principal">La Carta</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
       <!-- Buscador -->
       <div class="nav-search">
         <span class="search-icon">🔍</span>
@@ -74,9 +81,9 @@
           <a href="#menu-principal" class="btn-primary" id="cta-hero-menu">
             Ver la Carta
           </a>
-          <button class="btn-secondary" onclick="openDrawer()" id="cta-hero-cart">
-            Revisar Pedido
-          </button>
+          <a href="#el-local" class="btn-secondary" id="cta-hero-about">
+            Conoce el Local
+          </a>
         </div>
       </div>
 
@@ -111,6 +118,63 @@
       <div class="benefit-item">
         <span class="benefit-title">Mayonesa de la Casa</span>
         <span class="benefit-desc">Receta clásica tradicional</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN CONTEXTUAL: SOBRE EL LOCAL
+       ========================================================================== -->
+  <section class="about-section" id="el-local">
+    <div class="container about-grid">
+      <div class="about-content">
+        <span class="section-pill">Sobre el Local</span>
+        <h2 class="about-title">Tradición sanguchera hecha con oficio y paciencia</h2>
+        <p class="about-lead">
+          Nacimos con una idea clara: rescatar la esencia de la clásica fuente de soda de barrio, donde las cosas se preparan al minuto, sin atajos industriales y con el respeto que merece cada receta de nuestra mesa.
+        </p>
+        <p class="about-text">
+          En nuestra cocina no hay secretos raros, solo ingredientes nobles: la plancha bien caliente para sellar láminas de posta de vacuno en su punto justo, palta Hass nacional fresca molida en el día, mayonesa casera batida a mano según la receta familiar y pan artesanal que llega tibio cada mañana.
+        </p>
+        <p class="about-text">
+          Ya sea que te sientes en la barra por un completo italiano al paso, un Barros Luco hirviendo con queso derretido o pidas para compartir en familia una lasaña recién salida del horno, nuestro compromiso es el mismo: comida abundante, caliente y con el sabor honesto de siempre.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar-item">
+            <span class="pillar-num">01</span>
+            <div>
+              <h4 class="pillar-title">Plancha Tradicional</h4>
+              <p class="pillar-desc">Cortes seleccionados sellados al minuto con sal de mar para conservar todo su jugo.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <span class="pillar-num">02</span>
+            <div>
+              <h4 class="pillar-title">Palta Hass del Día</h4>
+              <p class="pillar-desc">100% palta Hass de primera calidad molida sin mezclas, agregados ni diluciones.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <span class="pillar-num">03</span>
+            <div>
+              <h4 class="pillar-title">Mayonesa de la Casa</h4>
+              <p class="pillar-desc">Batida a diario en nuestro local con huevos frescos y el toque justo de limón.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image-wrapper">
+        <div class="about-img-card">
+          <img src="assets/images/barros_luco_1790094155524.jpg" alt="Preparación tradicional a la plancha" loading="lazy">
+          <div class="about-badge">
+            <strong>Fuente & Sabor</strong>
+            <span>Tradición de barrio · Santiago</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

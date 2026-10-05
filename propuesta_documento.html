@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propuesta Comercial - Plataforma Web para Pedidos</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+    @page {
+      size: A4;
+      margin: 16mm 16mm 16mm 16mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1f2937;
+      background-color: #ffffff;
+      line-height: 1.55;
+      font-size: 13px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e5a93c;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #e5a93c, #ff6b35);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .logo-text h2 {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #111827;
+      line-height: 1.15;
+    }
+
+    .logo-text p {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .doc-meta {
+      text-align: right;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .doc-meta strong {
+      color: #111827;
+    }
+
+    /* TITLE BANNER */
+    .title-banner {
+      background: linear-gradient(135deg, #0f1015 0%, #1a1e28 100%);
+      color: #ffffff;
+      padding: 24px 26px;
+      border-radius: 12px;
+      margin-bottom: 22px;
+      border-left: 5px solid #e5a93c;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      background: rgba(229, 169, 60, 0.2);
+      border: 1px solid #e5a93c;
+      color: #fbd38d;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .title-banner h1 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .title-banner p {
+      font-size: 13px;
+      color: #cbd5e1;
+      max-width: 680px;
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f1015;
+      margin-top: 22px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+
+    .section-title .bullet {
+      width: 8px;
+      height: 8px;
+      background: #e5a93c;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #374151;
+    }
+
+    /* BENEFIT CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .card.featured {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+
+    .card-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 11.5px;
+      color: #4b5563;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* WHATSAPP CALLOUT BOX */
+    .whatsapp-banner {
+      background: #ecfdf5;
+      border: 2px dashed #10b981;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .whatsapp-badge {
+      width: 44px;
+      height: 44px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-banner h4 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #065f46;
+      margin-bottom: 4px;
+    }
+
+    .whatsapp-banner p {
+      font-size: 12px;
+      color: #047857;
+      margin-bottom: 0;
+    }
+
+    /* PRICE BOX */
+    .price-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-details h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #92400e;
+      margin-bottom: 4px;
+    }
+
+    .price-details p {
+      font-size: 12px;
+      color: #b45309;
+      margin-bottom: 0;
+    }
+
+    .price-tag {
+      text-align: right;
+    }
+
+    .price-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: #b45309;
+      line-height: 1;
+    }
+
+    .price-sub {
+      font-size: 11px;
+      font-weight: 700;
+      color: #78350f;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .includes-list {
+      margin-top: 10px;
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+      font-size: 11.5px;
+      color: #374151;
+    }
+
+    .includes-list li {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .includes-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    /* EMAIL BOX */
+    .email-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #2563eb;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 11.5px;
+      color: #1e293b;
+    }
+
+    .email-subject {
+      background: #e2e8f0;
+      padding: 7px 12px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .email-body {
+      white-space: pre-line;
+      line-height: 1.55;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      border-top: 1px solid #e5a93c;
+      padding-top: 12px;
+      margin-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <!-- HEADER -->
+    <div class="doc-header">
+      <div class="logo-badge">
+        <div class="logo-icon">🥪</div>
+        <div class="logo-text">
+          <h2>PROPUESTA DE PÁGINA WEB</h2>
+          <p>Catálogo Digital y Pedidos Directos a WhatsApp</p>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <div><strong>Documento:</strong> Presentación de Servicio</div>
+        <div><strong>Fecha:</strong> Octubre 2026</div>
+      </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="title-banner">
+      <span class="tag-pill">Solución Digital para Gastronomía</span>
+      <h1>Tu Menú Online con Pedidos Directos a WhatsApp</h1>
+      <p>Diseñada para que tu local gane mayor alcance, profesionalice su imagen y permita a tus clientes pedir de forma rápida, clara y ordenada desde cualquier celular.</p>
+    </div>
+
+    <!-- ENFASIS WHATSAPP -->
+    <div class="whatsapp-banner">
+      <div class="whatsapp-badge">📲</div>
+      <div>
+        <h4>Recepción Inmediata en el WhatsApp de tu Local</h4>
+        <p>Tus clientes arman y personalizan su pedido en la página, y al presionar "Enviar Pedido", la comanda completa se carga <strong>automáticamente en el número de WhatsApp que tú destines para tu negocio</strong>, con productos, agregados, dirección de entrega y forma de pago lista.</p>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <h3 class="section-title"><span class="bullet"></span> 1. Beneficios Principales para tu Negocio</h3>
+
+    <div class="grid-2">
+      <div class="card featured">
+        <div class="card-icon">🚀</div>
+        <h4>Mayor Alcance y Presencia Digital</h4>
+        <p>Una página web moderna y atractiva que puedes compartir en tu perfil de Instagram, Facebook, Google Maps y estados de WhatsApp para que más personas conozcan tu carta completa.</p>
+      </div>
+
+      <div class="card featured">
+        <div class="card-icon">🍔</div>
+        <h4>Facilidad Total para tus Clientes</h4>
+        <p>Navegación visual con fotos de calidad, filtros por categorías, selector de tipos de pan (frica, marraqueta, amasado), opciones de ingredientes extra y notas especiales sin confusiones.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h4>Rapidez y Carga Inmediata en Celulares</h4>
+        <p>Tus clientes no tienen que descargar ninguna aplicación pesada. La página abre al instante desde cualquier teléfono inteligente o computador con un simple enlace.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h4>Optimización para Buscadores (Google e IA)</h4>
+        <p>Estructurada técnicamente con datos de restaurante para aparecer cuando las personas busquen comida y sándwiches en tu zona tanto en Google como en nuevos buscadores de Inteligencia Artificial.</p>
+      </div>
+    </div>
+
+    <!-- PRECIO CLARO Y ÚNICO -->
+    <h3 class="section-title"><span class="bullet"></span> 2. Valor de la Página Web</h3>
+
+    <div class="price-box">
+      <div class="price-details">
+        <h3>Página Web Completa y Lista para Operar</h3>
+        <p>Pago único, sin letras chicas ni cobros extra por pedido.</p>
+        <ul class="includes-list">
+          <li>Diseño personalizado con el logo y colores de tu local</li>
+          <li>Carga de todos los platos, fotos, descripciones y precios</li>
+          <li>Integración con tu número oficial de WhatsApp</li>
+          <li>Configuración de modalidad: Reparto a domicilio o Retiro</li>
+          <li>Optimización para celulares (100% responsiva)</li>
+          <li>Puesta en marcha y asesoría de uso</li>
+        </ul>
+      </div>
+      <div class="price-tag">
+        <div class="price-value">$120.000</div>
+        <div class="price-sub">Pesos Chilenos (CLP)</div>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- CORREO LISTO PARA ENVIAR -->
+    <h3 class="section-title"><span class="bullet"></span> 3. Correo de Presentación Comercial para Clientes</h3>
+    <p>
+      Plantilla lista para contactar a dueños o administradores de sangucherías y restaurantes:
+    </p>
+
+    <div class="email-box">
+      <div class="email-subject">
+        <strong>Asunto:</strong> Página web con pedidos directos a WhatsApp para [Nombre del Local]
+      </div>
+      <div class="email-body">
+Hola [Nombre del Dueño o Encargado], un gusto saludarte.
+
+Te contacto porque sigo el trabajo que realizan en **[Nombre del Local]** y la calidad de sus productos es excelente.
+
+Quería presentarte una **página web diseñada especialmente para sangucherías y locales de comida**, pensada para darles mucho más alcance y hacer que para sus clientes sea facilísimo ver la carta y pedir desde el celular:
+
+👉 **Puedes ver la demostración interactiva aquí:** [Enlace a tu Demo o Video]
+
+**¿Cómo funciona para tu negocio?**
+• **Tus clientes eligen en la web:** Pueden ver fotos de los platos, elegir el tipo de pan, sumar adicionales (como palta, queso o salsas) y agregar notas especiales.
+• **Los pedidos llegan directo a tu WhatsApp:** Al presionar "Enviar Pedido", la comanda completa se carga **automáticamente al número de WhatsApp de tu local**, con el detalle exacto de productos, dirección de entrega, método de pago y el total listo para preparar en cocina.
+• **Mayor presencia y alcance:** Puedes colocar el enlace en tu biografía de Instagram, en tu ficha de Google Maps o enviarlo por chat para que todos tengan tu carta a mano.
+• **Carga instantánea:** Funciona en cualquier teléfono sin que el cliente tenga que descargar aplicaciones.
+
+El valor de la página web completa y lista para funcionar es de **$120.000 CLP** (pago único), lo que incluye la personalización con el logo de tu local, la carga de tu carta con fotos y precios, y la conexión a tu número de WhatsApp.
+
+¿Te gustaría que te envíe un breve video de 1 minuto para que veas lo fácil y rápida que es la experiencia de pedido?
+
+Quedo atento a tus comentarios.
+
+Saludos cordiales,
+**[Tu Nombre]**
+WhatsApp: **[Tu Número de Contacto]**
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      <div>Plataforma Web Gastronómica · Pedidos Directos a WhatsApp</div>
+      <div>Propuesta Comercial · Valor: $120.000 CLP</div>
+    </div>
+  </div>
+
+</body>
+</html>

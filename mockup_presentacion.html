@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup & Demostración | Plataforma Web para Pedidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0f1015;
+      --bg-card: rgba(26, 29, 38, 0.85);
+      --bg-card-hover: rgba(35, 40, 52, 0.95);
+      --accent-gold: #e5a93c;
+      --accent-gradient: linear-gradient(135deg, #e5a93c 0%, #ff6b35 100%);
+      --accent-green: #10b981;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(229, 169, 60, 0.2);
+      --shadow-glow: 0 10px 30px -10px rgba(229, 169, 60, 0.3);
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(229, 169, 60, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 24px 0 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      background: rgba(15, 16, 21, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229, 169, 60, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-action {
+      background: var(--accent-gradient);
+      color: #0f1015;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -8px rgba(229, 169, 60, 0.5);
+    }
+
+    /* HERO MOCKUP HEADER */
+    .hero-section {
+      padding: 50px 0 35px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 30px;
+    }
+
+    /* DEVICE SWITCHER CONTROLS */
+    .device-switcher {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 5px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 30px;
+      gap: 6px;
+    }
+
+    .switch-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .switch-btn.active {
+      background: var(--accent-gold);
+      color: #0f1015;
+    }
+
+    /* MOCKUP SHOWCASE FRAME */
+    .mockup-container {
+      position: relative;
+      margin: 0 auto;
+      transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mockup-container.desktop {
+      max-width: 1060px;
+    }
+
+    .mockup-container.mobile {
+      max-width: 410px;
+    }
+
+    .device-chrome {
+      background: #1e222d;
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(229, 169, 60, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chrome-bar {
+      background: #14171f;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chrome-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .chrome-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .chrome-url-bar {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .chrome-screen {
+      height: 620px;
+      width: 100%;
+      background: #111;
+      position: relative;
+    }
+
+    .chrome-screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* WHATSAPP FLOW SPOTLIGHT */
+    .whatsapp-spotlight {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.05) 100%);
+      border: 2px solid var(--accent-green);
+      border-radius: 20px;
+      padding: 35px 40px;
+      margin: 60px 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    @media (max-width: 820px) {
+      .whatsapp-spotlight {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .wa-icon-large {
+      width: 80px;
+      height: 80px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+    }
+
+    .wa-info h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #34d399;
+    }
+
+    .wa-info p {
+      color: #e5e7eb;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    /* PRICING CARD SECTION */
+    .pricing-showcase {
+      background: var(--bg-card);
+      border: 2px solid var(--accent-gold);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 40px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    @media (max-width: 820px) {
+      .pricing-showcase {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .price-big {
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+
+    .price-currency {
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    /* VALUE PILLARS */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 28px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-gold);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="badge-pill">🚀 Demostración en Vivo</span>
+        <span style="font-weight: 700; letter-spacing: 0.5px;">Plataforma Gastronómica</span>
+      </div>
+      <div>
+        <a href="index.html" target="_blank" class="btn-action">
+          Abrir Web Completa ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="badge-pill">Mayor Alcance y Facilidad de Pedidos</div>
+      <h1 class="hero-title">
+        Tu propia página web con <span>pedidos directos a WhatsApp</span>
+      </h1>
+      <p class="hero-subtitle">
+        Una vitrina moderna y atractiva para tu local, donde tus clientes eligen y personalizan sus platos fácilmente, y el pedido completo se carga directamente al número de WhatsApp de tu negocio.
+      </p>
+
+      <!-- SWITCHER DE DISPOSITIVO -->
+      <div class="device-switcher">
+        <button class="switch-btn active" id="btn-desktop" onclick="switchDevice('desktop')">
+          💻 Vista Computador (Escritorio)
+        </button>
+        <button class="switch-btn" id="btn-mobile" onclick="switchDevice('mobile')">
+          📱 Vista Celular (Móvil)
+        </button>
+      </div>
+
+      <!-- MOCKUP FRAME -->
+      <div class="mockup-container desktop" id="mockup-frame">
+        <div class="device-chrome">
+          <div class="chrome-bar">
+            <div class="chrome-dots">
+              <div class="chrome-dot dot-red"></div>
+              <div class="chrome-dot dot-yellow"></div>
+              <div class="chrome-dot dot-green"></div>
+            </div>
+            <div class="chrome-url-bar">
+              🔒 https://tu-local.cl/carta
+            </div>
+          </div>
+          <div class="chrome-screen">
+            <iframe src="index.html" title="Previsualización en vivo de la plataforma"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP SPOTLIGHT -->
+  <section class="container">
+    <div class="whatsapp-spotlight">
+      <div class="wa-icon-large">📲</div>
+      <div class="wa-info">
+        <h2>Los pedidos cargan directo al WhatsApp de tu local</h2>
+        <p>
+          El cliente explora tu carta, selecciona el tipo de pan, añade agregados como palta o salsas, elige despacho o retiro e ingresa su dirección. Al hacer clic en <strong>"Enviar Pedido"</strong>, la orden se abre automáticamente en WhatsApp enviando el mensaje estructurado directo al número que tú tengas asignado para delivery o atención.
+        </p>
+      </div>
+    </div>
+
+    <!-- PRECIO ÚNICO -->
+    <div class="pricing-showcase">
+      <div>
+        <span class="badge-pill" style="margin-bottom: 12px;">Valor del Servicio</span>
+        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Página Web Completa y Lista para Operar</h2>
+        <p style="color: var(--text-muted); max-width: 600px;">
+          Incluye diseño personalizado con tu logo y fotos, carga de tu carta completa con precios, vinculación con el WhatsApp de tu negocio y optimización para que funcione a máxima velocidad en cualquier teléfono.
+        </p>
+      </div>
+      <div style="text-align: right;">
+        <div class="price-big">$120.000</div>
+        <div class="price-currency">Pesos Chilenos (CLP) · Pago Único</div>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS CLAVE -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>Mayor Alcance en Redes y Google</h3>
+        <p>Coloca el enlace en tu biografía de Instagram, Facebook y estados de WhatsApp para que más clientes conozcan tu oferta completa con un solo toque.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🍔</div>
+        <h3>Facilidad de Pedido para el Cliente</h3>
+        <p>Catálogo visual e intuitivo con fotos, selector de ingredientes y notas especiales para que el cliente arme su sándwich o plato sin equivocaciones.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Carga Rápida y Sin Descargas</h3>
+        <p>Tus clientes no tienen que instalar nada. La web abre de inmediato en cualquier celular, garantizando una experiencia ágil y sin fricciones.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>Posicionamiento en Google e IA</h3>
+        <p>Estructura preparada con datos técnicos de restaurante para destacar en búsquedas locales de Google y en recomendaciones de buscadores de inteligencia artificial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Demostración de Plataforma Gastronómica para Locales de Comida · Valor: <strong>$120.000 CLP</strong></p>
+      <p style="margin-top: 6px; font-size: 0.82rem; opacity: 0.7;">Personalizable con el logo, fotos, carta y WhatsApp de tu negocio.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchDevice(type) {
+      const frame = document.getElementById('mockup-frame');
+      const btnDesktop = document.getElementById('btn-desktop');
+      const btnMobile = document.getElementById('btn-mobile');
+
+      if (type === 'mobile') {
+        frame.classList.remove('desktop');
+        frame.classList.add('mobile');
+        btnMobile.classList.add('active');
+        btnDesktop.classList.remove('active');
+      } else {
+        frame.classList.remove('mobile');
+        frame.classList.add('desktop');
+        btnDesktop.classList.add('active');
+        btnMobile.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
